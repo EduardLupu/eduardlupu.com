@@ -10,7 +10,7 @@ import { BsSpotify } from "react-icons/bs";
 export default function Footer() {
   return (
     <footer className="mb-16">
-      <ul className="font-sm mt-8 flex justify-between text-neutral-600 dark:text-neutral-400">
+      <ul className="font-sm mt-8 flex flex-wrap justify-center gap-6 text-neutral-600 dark:text-neutral-400">
         <li>
           <a
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
@@ -92,7 +92,7 @@ export default function Footer() {
           </a>
         </li>
       </ul>
-      <p className="mt-8 text-neutral-600 dark:text-neutral-300">
+      <p className="mt-8 text-center text-neutral-600 dark:text-neutral-300">
         © {new Date().getFullYear()}
       </p>
     </footer>
