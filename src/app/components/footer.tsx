@@ -6,6 +6,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
 import { FaTiktok } from "react-icons/fa";
 import { BsSpotify } from "react-icons/bs";
+import Badge from "./badge";
+import { TbFileCv } from "react-icons/tb";
 
 export default function Footer() {
   return (
@@ -91,10 +93,32 @@ export default function Footer() {
             <BsSpotify size={32} />
           </a>
         </li>
+        <li>
+          <a
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://eduardlupu.com/resume.pdf"
+          >
+            <TbFileCv size={32} />
+          </a>
+        </li>
       </ul>
-      <p className="mt-8 text-center text-neutral-600 dark:text-neutral-300">
-        © {new Date().getFullYear()}
-      </p>
+      <div className="flex justify-between mt-16">
+        <p className="text-center text-neutral-600 dark:text-neutral-300 text-sm">
+          built with <Badge href="https://nextjs.org">Next.js</Badge>
+        </p>
+        <p className="text-center text-neutral-600 dark:text-neutral-300 text-sm">
+          <Badge
+            href={`https://en.wikipedia.org/wiki/${new Date().getFullYear()}`}
+          >
+            © {new Date().getFullYear()}
+          </Badge>
+        </p>
+        <p className="text-center text-neutral-600 dark:text-neutral-300 text-sm">
+          inspired by <Badge href="https://leerob.io/">leerob</Badge>
+        </p>
+      </div>
     </footer>
   );
 }
