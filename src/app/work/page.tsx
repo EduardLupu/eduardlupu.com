@@ -17,7 +17,7 @@ export default function MusicPage() {
           href="https://eduardlupu.github.io/spotify-artists/"
           rel="noreferrer"
           target="_blank"
-          className="underline underline-offset-2"
+          className="underline underline-offset-4"
         >
           here
         </a>
@@ -26,6 +26,17 @@ export default function MusicPage() {
       <h1 className="mb-8 text-gray-300">
         so if you're into music, tech and data, you might want to give me a
         shout. you have all the links in the footer. 🎹
+      </h1>
+      <h1 className="mb-8 text-gray-300">
+        if you would rather stay anonymous, you can find me on{" "}
+        <a
+          href="https://t.me/luckytoef"
+          rel="noopener"
+          target="_blank"
+          className="underline-offset-4 underline"
+        >
+          t.me/luckytoef
+        </a>
       </h1>
     </div>
   );

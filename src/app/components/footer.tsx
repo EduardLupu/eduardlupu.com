@@ -19,6 +19,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="/rss"
+            aria-label={`RSS Feed`}
           >
             <FaRss size={32} />
           </a>
@@ -29,6 +30,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/EduardLupu"
+            aria-label={`github`}
           >
             <TbBrandGithubFilled size={32} />
           </a>
@@ -39,6 +41,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/eduard-lupu/"
+            aria-label={`linkedin`}
           >
             <FaLinkedinIn size={32} />
           </a>
@@ -49,6 +52,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="mailto:lupu.eduard.adrian@gmail.com"
+            aria-label={`email`}
           >
             <MdEmail size={32} />
           </a>
@@ -59,6 +63,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.facebook.com/eduard.adrian.lupu"
+            aria-label={`facebook`}
           >
             <FaFacebookF size={32} />
           </a>
@@ -69,6 +74,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.instagram.com/edi.lupu/"
+            aria-label={`instagram`}
           >
             <FiInstagram size={32} />
           </a>
@@ -79,6 +85,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.tiktok.com/@edi.lupu"
+            aria-label={`tiktok`}
           >
             <FaTiktok size={32} />
           </a>
@@ -89,6 +96,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://open.spotify.com/user/4du8lsn1mzt54xlh66ajmvont"
+            aria-label={`spotify`}
           >
             <BsSpotify size={32} />
           </a>
@@ -99,6 +107,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://eduardlupu.com/resume.pdf"
+            aria-label={`cv`}
           >
             <TbFileCv size={32} />
           </a>
