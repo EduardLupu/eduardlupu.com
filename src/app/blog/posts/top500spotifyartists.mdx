@@ -1,0 +1,50 @@
+---
+title: 'top 500 spotify artists: easy challenge or not?'
+publishedAt: '2024-10-01'
+summary: 'let's see how easy is to obtain the top 500 artists from spotify'
+---
+
+now, this will be first tech and music related blog post. I prepared a lot for it, so let's dive right in.
+
+<center>
+    <a href="https://eduardlupu.github.io/spotify-artists/top-artists" target="_blank" rel="noopener">
+        <img src="https://i.imgur.com/UW4O32i.png" alt="spotify top 500 artists"/>
+    </a>
+</center>
+
+
+## background
+
+firstly, I love Spotify. it's simply the best music platform no argues. tbh, I use it even as an entertainment platform, not just for music.
+
+sometimes, it came to my mind that I would like to know which artist has the most monthly listeners (so basically which is the most popular).
+the only way to check the world rank of an artist is to open his profile, but this approach is kinda hard because you need to think which artists could be higher and higher, and I was struggling to find the top 1 artist.
+
+so I looked on the internet for a top 500 lists, but I didn't find any reliable source. so I thought, why not make my own list?
+
+## the challenge
+
+tbh, I didn't even know that this is a challenge. I thought of it like a cool side project, but after investigating and browsing the internet, I found out that this is actually a popular challenge.
+
+[check this reddit post](https://www.reddit.com/r/spotify/comments/vuxjdl/the_hunt_for_the_missing_five/) and this blog post [here](https://unicks.ninja/posts/finding-spotifys-top-500-artists/).
+
+## so no available list?
+
+yes, I really did look on a lot of websites, but none provided the most accurate data. some lists were outdated, some were not accurate, and other would simply lie to you by shifting the next positions to fill the gaps if they don't find artists on specific ranks.
+
+## the solution
+
+my solution is similar to what [unicks](https://unicks.ninja/) suggested, but I used a different approach as I want to scale this application to do more than just getting the top 500 artists.
+
+I "handpicked" 158k artists which had over 10k monthly listeners at that time and over 1k followers. by using GitHub Actions, I created a workflow that runs daily at 22 PM UTC and fetches the stats of all the artists I've selected.
+
+all the data is stored in a compressed JSON file. by this approach, I won't need a server or a database to see the past stats of an artist, but rather use GitHub API to check the file history (this is not available at the moment).
+
+## the results
+
+using Next.js, I've created a simple frontend that displays the top 500 artists. you can check it [here](https://eduardlupu.github.io/spotify-artists/top-artists). the data is updated daily, so you can check it every day to see if your favorite artist is climbing the ranks.
+I would highly appreciate it if you could share this project with your friends, so we can make it more popular. also, any contribution is welcomed.
+
+
+
+

@@ -18,7 +18,7 @@ export default function Page() {
         </div>
         <Image
           src={"/profile.webp"}
-          alt="Eduard Lupu's profile pic"
+          alt="eduard lupu's profile pic"
           width={1362}
           height={1502}
           className="rounded-xl object-cover w-1/2 md:w-1/3 h-auto"

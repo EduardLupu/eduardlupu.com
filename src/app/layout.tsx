@@ -1,25 +1,27 @@
-import './global.css'
-import type { Metadata } from 'next'
+import "./global.css";
+import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Navbar } from './components/nav'
-import Footer from './components/footer'
-import { baseUrl } from './sitemap'
-import {montserrat} from "./lib/fonts";
+import { Navbar } from "./components/nav";
+import Footer from "./components/footer";
+import { baseUrl } from "./sitemap";
+import { montserrat } from "./lib/fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Eduard Lupu',
-    template: '%s | Portfolio',
+    default: "eduard lupu",
+    template: "%s | portfolio",
   },
-  description: 'This is my portfolio.',
+  description:
+    "eduard lupu`s page. he is a developer who loves working with anything related to music industry.",
   openGraph: {
-    title: 'Eduard Lupu',
-    description: 'Eduard Lupu personal page.',
+    title: "eduard lupu",
+    description:
+      "eduard lupu`s page. he is a developer who loves working with anything related to music industry.",
     url: baseUrl,
-    siteName: 'Eduard Lupu',
-    locale: 'en_US',
-    type: 'website',
+    siteName: "eduard lupu",
+    locale: "en_US",
+    type: "website",
   },
   robots: {
     index: true,
@@ -27,9 +29,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   icons: {
@@ -189,25 +191,25 @@ export const metadata: Metadata = {
         url: "/ms-icon-310x310.png",
         sizes: "310x310",
         type: "image/png",
-      }
+      },
     ],
     shortcut: { url: "/favicon.ico" },
-  }
-}
+  },
+};
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
+const cx = (...classes) => classes.filter(Boolean).join(" ");
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html
       lang="en"
       className={cx(
-        'text-black bg-white dark:text-white dark:bg-black',
-        montserrat.className
+        "text-black bg-white dark:text-white dark:bg-black",
+        montserrat.className,
       )}
     >
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
@@ -219,5 +221,5 @@ export default function RootLayout({
       </body>
       <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
     </html>
-  )
+  );
 }

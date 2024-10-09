@@ -11,7 +11,7 @@ import { TbFileCv } from "react-icons/tb";
 
 export default function Footer() {
   return (
-    <footer className="mb-16">
+    <footer className="mt-16 mb-16">
       <ul className="font-sm mt-8 flex flex-wrap justify-center gap-6 text-neutral-600 dark:text-neutral-400">
         <li>
           <a
