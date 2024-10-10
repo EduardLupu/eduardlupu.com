@@ -5,13 +5,13 @@ export default function Page() {
   return (
     <section>
       <div className="flex flex-col-reverse gap-8 md:flex-row items-center justify-between mb-5 tracking-tight">
-        <div className="flex flex-col gap-2.5 mb-4 md:mb-0">
-          <h1 className="text-3xl md:text-4xl font-bold">eduard lupu</h1>
-          <p className="dark:text-neutral-300">
+        <div className="flex flex-col gap-6 mb-4 md:mb-0">
+          <h1 className="text-[42px] font-bold">eduard lupu</h1>
+          <p className="text-sm dark:text-neutral-300">
             full-stack developer @{" "}
             <Badge href={"https://bitstone.com/"}>BitStone</Badge>
           </p>
-          <p className="dark:text-neutral-300">
+          <p className="text-sm dark:text-neutral-300">
             MSc in software engineering @{" "}
             <Badge href={"https://www.ubbcluj.ro/en/"}>BBU</Badge>
           </p>

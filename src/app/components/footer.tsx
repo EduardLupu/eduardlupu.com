@@ -1,38 +1,27 @@
-import { TbBrandGithubFilled } from "react-icons/tb";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaRss } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { FaFacebookF } from "react-icons/fa";
-import { FiInstagram } from "react-icons/fi";
-import { FaTiktok } from "react-icons/fa";
-import { BsSpotify } from "react-icons/bs";
 import Badge from "./badge";
-import { TbFileCv } from "react-icons/tb";
+import {
+  RiGithubLine,
+  RiLinkedinLine,
+  RiMailLine,
+  RiFacebookLine,
+  RiInstagramLine,
+  RiTiktokLine,
+  RiSpotifyLine,
+} from "react-icons/ri";
 
 export default function Footer() {
   return (
     <footer className="mt-auto pt-16 mb-8">
-      <ul className="font-sm flex flex-wrap justify-center gap-6 text-neutral-600 dark:text-neutral-400">
-        <li>
-          <a
-            className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="/rss"
-            aria-label={`RSS Feed`}
-          >
-            <FaRss size={32} />
-          </a>
-        </li>
+      <ul className="flex flex-wrap justify-center gap-6 sm:gap-12 text-neutral-600 dark:text-neutral-400">
         <li>
           <a
             className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/EduardLupu"
-            aria-label={`github`}
+            aria-label="GitHub"
           >
-            <TbBrandGithubFilled size={32} />
+            <RiGithubLine size={24} />
           </a>
         </li>
         <li>
@@ -41,20 +30,18 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/eduard-lupu/"
-            aria-label={`linkedin`}
+            aria-label="LinkedIn"
           >
-            <FaLinkedinIn size={32} />
+            <RiLinkedinLine size={24} />
           </a>
         </li>
         <li>
           <a
             className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
             href="mailto:lupu.eduard.adrian@gmail.com"
-            aria-label={`email`}
+            aria-label="Email"
           >
-            <MdEmail size={32} />
+            <RiMailLine size={24} />
           </a>
         </li>
         <li>
@@ -63,9 +50,9 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.facebook.com/eduard.adrian.lupu"
-            aria-label={`facebook`}
+            aria-label="Facebook"
           >
-            <FaFacebookF size={32} />
+            <RiFacebookLine size={24} />
           </a>
         </li>
         <li>
@@ -74,9 +61,9 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.instagram.com/edi.lupu/"
-            aria-label={`instagram`}
+            aria-label="Instagram"
           >
-            <FiInstagram size={32} />
+            <RiInstagramLine size={24} />
           </a>
         </li>
         <li>
@@ -85,9 +72,9 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.tiktok.com/@edi.lupu"
-            aria-label={`tiktok`}
+            aria-label="TikTok"
           >
-            <FaTiktok size={32} />
+            <RiTiktokLine size={24} />
           </a>
         </li>
         <li>
@@ -96,28 +83,17 @@ export default function Footer() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://open.spotify.com/user/4du8lsn1mzt54xlh66ajmvont"
-            aria-label={`spotify`}
+            aria-label="Spotify"
           >
-            <BsSpotify size={32} />
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://eduardlupu.com/resume.pdf"
-            aria-label={`cv`}
-          >
-            <TbFileCv size={32} />
+            <RiSpotifyLine size={24} />
           </a>
         </li>
       </ul>
       <div className="flex justify-between mt-16">
-        <p className="text-center text-sm  text-black dark:text-neutral-300">
+        <p className="text-center text-sm text-black dark:text-neutral-300">
           built with <Badge href="https://nextjs.org">Next.js</Badge>
         </p>
-        <p className="text-center text-sm  text-black dark:text-neutral-300">
+        <p className="text-center text-sm text-black dark:text-neutral-300">
           inspired by <Badge href="https://leerob.io/">leerob</Badge>
         </p>
       </div>

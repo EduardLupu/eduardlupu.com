@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     default: "eduard lupu",
-    template: "%s | portfolio",
+    template: "%s | eduard lupu",
   },
   description:
     "eduard lupu`s page. he is a developer who loves working with anything related to music industry.",
@@ -212,7 +212,11 @@ export default function RootLayout({
         montserrat.className,
       )}
     >
-      <body className="antialiased max-w-xl mx-4 mt-6 lg:mx-auto">
+      <body
+        className="antialiased max-w-xl mx-4 mt-6 lg:mx-auto
+        [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]:hidden [scrollbar-width:none]:hidden
+      "
+      >
         <main className="flex-auto min-w-0 flex flex-col px-2 md:px-0 min-h-[96vh]">
           <Navbar />
           {children}
