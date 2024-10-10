@@ -11,11 +11,11 @@ import { TbFileCv } from "react-icons/tb";
 
 export default function Footer() {
   return (
-    <footer className="mt-16 mb-16">
-      <ul className="font-sm mt-8 flex flex-wrap justify-center gap-6 text-neutral-600 dark:text-neutral-400">
+    <footer className="mt-auto pt-16 mb-8">
+      <ul className="font-sm flex flex-wrap justify-center gap-6 text-neutral-600 dark:text-neutral-400">
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
             href="/rss"
@@ -26,7 +26,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/EduardLupu"
@@ -37,7 +37,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/eduard-lupu/"
@@ -48,7 +48,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
             href="mailto:lupu.eduard.adrian@gmail.com"
@@ -59,7 +59,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.facebook.com/eduard.adrian.lupu"
@@ -70,7 +70,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.instagram.com/edi.lupu/"
@@ -81,7 +81,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.tiktok.com/@edi.lupu"
@@ -92,7 +92,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
             href="https://open.spotify.com/user/4du8lsn1mzt54xlh66ajmvont"
@@ -103,7 +103,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all text-neutral-800 hover:text-neutral-500  dark:text-neutral-400 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
             href="https://eduardlupu.com/resume.pdf"
@@ -114,17 +114,10 @@ export default function Footer() {
         </li>
       </ul>
       <div className="flex justify-between mt-16">
-        <p className="text-center text-neutral-600 dark:text-neutral-300 text-sm">
+        <p className="text-center text-sm  text-black dark:text-neutral-300">
           built with <Badge href="https://nextjs.org">Next.js</Badge>
         </p>
-        <p className="text-center text-neutral-600 dark:text-neutral-300 text-sm">
-          <Badge
-            href={`https://en.wikipedia.org/wiki/${new Date().getFullYear()}`}
-          >
-            © {new Date().getFullYear()}
-          </Badge>
-        </p>
-        <p className="text-center text-neutral-600 dark:text-neutral-300 text-sm">
+        <p className="text-center text-sm  text-black dark:text-neutral-300">
           inspired by <Badge href="https://leerob.io/">leerob</Badge>
         </p>
       </div>

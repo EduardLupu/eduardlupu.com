@@ -7,11 +7,11 @@ export default function Page() {
       <div className="flex flex-col-reverse gap-8 md:flex-row items-center justify-between mb-5 tracking-tight">
         <div className="flex flex-col gap-2.5 mb-4 md:mb-0">
           <h1 className="text-3xl md:text-4xl font-bold">eduard lupu</h1>
-          <p className="text-gray-400">
+          <p className="dark:text-neutral-300">
             full-stack developer @{" "}
             <Badge href={"https://bitstone.com/"}>BitStone</Badge>
           </p>
-          <p className="text-gray-400">
+          <p className="dark:text-neutral-300">
             MSc in software engineering @{" "}
             <Badge href={"https://www.ubbcluj.ro/en/"}>BBU</Badge>
           </p>
