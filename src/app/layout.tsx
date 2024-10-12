@@ -5,6 +5,7 @@ import { Navbar } from "./components/nav";
 import Footer from "./components/footer";
 import { baseUrl } from "./sitemap";
 import { montserrat } from "./lib/fonts";
+import { SpotifyProvider } from "../contexts/currently-playing-context";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -217,11 +218,13 @@ export default function RootLayout({
         [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]:hidden [scrollbar-width:none]:hidden
       "
       >
-        <main className="flex-auto min-w-0 flex flex-col px-2 md:px-0 min-h-[96vh]">
-          <Navbar />
-          {children}
-          <Footer />
-        </main>
+        <SpotifyProvider>
+          <main className="flex-auto min-w-0 flex flex-col px-2 md:px-0 min-h-[96vh]">
+            <Navbar />
+            {children}
+            <Footer />
+          </main>
+        </SpotifyProvider>
       </body>
       <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
     </html>
