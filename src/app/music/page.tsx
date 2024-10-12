@@ -40,14 +40,12 @@ export default function MusicPage() {
                 id="song-cover"
                 src={albumImageUrl}
                 alt="Song cover"
-                className="rounded-lg object-cover w-32"
+                className="rounded-lg object-cover w-16 sm:w-32"
               />
               <div className="flex flex-col gap-2 relative overflow-x-hidden">
                 <h3
                   id="song-title"
-                  className={`text-lg font-bold max-w-xs whitespace-nowrap ${
-                    title.length > 35 ? "animate-marquee" : ""
-                  }`}
+                  className="text-xs md:text-lg font-bold whitespace-nowrap truncate"
                 >
                   <a
                     href={songUrl}
@@ -64,12 +62,8 @@ export default function MusicPage() {
                       E
                     </span>
                   )}
-                  <div className="relative overflow-hidden max-w-xs">
-                    <h4
-                      className={`text-sm opacity-90 whitespace-nowrap ${
-                        artist.length > 35 ? "animate-marquee" : ""
-                      }`}
-                    >
+                  <div className="relative overflow-hidden">
+                    <h4 className="text-[10px] md:test-xs opacity-90 whitespace-nowrap truncate">
                       <span>{artist}</span>
                     </h4>
                   </div>
