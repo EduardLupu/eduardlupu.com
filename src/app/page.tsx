@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Badge from "./components/badge";
 
 export default function Page() {
@@ -16,13 +15,10 @@ export default function Page() {
             <Badge href={"https://www.ubbcluj.ro/en/"}>BBU</Badge>
           </p>
         </div>
-        <Image
+        <img
           src={"/profile.webp"}
           alt="eduard lupu's profile pic"
-          width={1362}
-          height={1502}
           className="rounded-xl object-cover w-1/2 md:w-1/3 h-auto"
-          quality={100}
         />
       </div>
     </section>
