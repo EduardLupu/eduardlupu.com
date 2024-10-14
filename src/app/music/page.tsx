@@ -1,6 +1,7 @@
 "use client";
 import { FaSpotify } from "react-icons/fa";
 import { useSpotify } from "../../contexts/currently-playing-context";
+import { useEffect, useRef } from "react";
 
 export default function MusicPage() {
   const {
@@ -13,18 +14,66 @@ export default function MusicPage() {
     canvasUrl,
   } = useSpotify();
 
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const fallbackImageRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    const fallbackImageElement = fallbackImageRef.current;
+
+    if (videoElement && canvasUrl) {
+      const promise = videoElement.play();
+
+      if (promise !== undefined) {
+        promise
+          .catch((error) => {
+            if (error.name === "NotAllowedError") {
+              videoElement.remove();
+              if (fallbackImageElement) {
+                fallbackImageElement.style.display = "block";
+              }
+            }
+          })
+          .then(() => {
+            if (videoElement) {
+              videoElement.play();
+            }
+          });
+      }
+    }
+  }, [canvasUrl]);
+
   return (
     <div className="container">
-      {canvasUrl && (
-        <video
-          src={canvasUrl}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 object-cover h-full w-full opacity-60 dark:opacity-40 mx-auto"
-          style={{ pointerEvents: "none" }}
-        ></video>
+      {canvasUrl ? (
+        <>
+          <video
+            src={canvasUrl}
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 object-cover h-full w-full opacity-60 dark:opacity-40 mx-auto"
+            style={{ pointerEvents: "none" }}
+          ></video>
+          <img
+            ref={fallbackImageRef}
+            src={albumImageUrl || ""}
+            alt="Song cover"
+            className="absolute inset-0 object-cover h-full w-full opacity-60 dark:opacity-40 mx-auto"
+            style={{ display: "none", pointerEvents: "none" }}
+          />
+        </>
+      ) : (
+        albumImageUrl && (
+          <img
+            src={albumImageUrl}
+            alt="Song cover"
+            className="absolute inset-0 object-cover h-full w-full opacity-60 dark:opacity-40 mx-auto"
+            style={{ pointerEvents: "none" }}
+          />
+        )
       )}
       <div className="relative z-10">
         {isPlaying ? (
