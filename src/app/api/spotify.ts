@@ -12,7 +12,8 @@ export class SpotifyAPI {
   private static tokenObtainedAt: number;
   private static tokenExpiresIn: number = 50 * 60 * 1000;
   private static webAccessToken: string;
-  private static readonly CORS_PROXY = "https://proxy.cors.sh/";
+  private static readonly CORS_PROXY =
+    "https://cors-anywhere.lupu-eduard-adrian.workers.dev/";
 
   public static async getCurrentlyPlaying() {
     try {
@@ -50,9 +51,12 @@ export class SpotifyAPI {
         },
       });
 
-    const url =
-      this.CORS_PROXY +
-      `https://api-partner.spotify.com/pathfinder/v1/query?operationName=${operationName}&variables=${encodeURI(variables)}&extensions=${encodeURI(extensions)}`;
+    const url = new URL(this.CORS_PROXY);
+
+    url.searchParams.append(
+      "destination",
+      `https://api-partner.spotify.com/pathfinder/v1/query?operationName=${operationName}&variables=${encodeURIComponent(variables)}&extensions=${encodeURIComponent(extensions)}`,
+    );
 
     const headers = {
       authorization: `Bearer ${accessToken}`,
@@ -61,7 +65,7 @@ export class SpotifyAPI {
     };
 
     try {
-      const response = await axios.get(url, { headers });
+      const response = await axios.get(url.toString(), { headers });
       return response.data;
     } catch (error) {
       console.error("Error getting song canvas:", error);
@@ -113,9 +117,12 @@ export class SpotifyAPI {
 
   private static async webGetAccessToken() {
     // Free CORS Proxy server because I won't pay for any server :P
-    const url =
-      this.CORS_PROXY +
-      "https://open.spotify.com/get_access_token?reason=transport";
+    const url = new URL(this.CORS_PROXY);
+
+    url.searchParams.append(
+      "destination",
+      `https://open.spotify.com/get_access_token?reason=transport`,
+    );
 
     const now = Date.now();
 
@@ -132,7 +139,7 @@ export class SpotifyAPI {
       accessToken: string;
       accessTokenExpirationTimestampMs: number;
       isAnonymous: boolean;
-    }>(url);
+    }>(url.toString());
 
     this.webAccessToken = data.accessToken;
 
