@@ -7,8 +7,8 @@ export default function Page() {
         <div className="flex flex-col gap-6 mb-4 md:mb-0">
           <h1 className="text-[42px] font-bold">eduard lupu</h1>
           <p className="text-sm dark:text-neutral-300">
-            full-stack developer @{" "}
-            <Badge href={"https://bitstone.com/"}>BitStone</Badge>
+            software engineer @{" "}
+            <Badge href={"https://kingfisher.com/"}>Kingfisher</Badge>
           </p>
           <p className="text-sm dark:text-neutral-300">
             MSc in software engineering @{" "}
