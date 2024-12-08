@@ -59,9 +59,28 @@ export class SpotifyAPI {
     );
 
     const headers = {
-      authorization: `Bearer ${accessToken}`,
-      "app-platform": "WebPlayer",
-      "spotify-app-version": "896000000",
+      Authorization: `Bearer ${accessToken}`,
+      "App-Platform": "WebPlayer",
+      "Spotify-App-Version": "1.2.53.259.gecba76ba",
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+      Accept: "application/json",
+      "Accept-Language": "en",
+      "Cache-Control": "no-cache",
+      "Content-Type": "application/json;charset=UTF-8",
+      Origin: "https://open.spotify.com",
+      Pragma: "no-cache",
+      Priority: "u=1, i",
+      Referer: "https://open.spotify.com/",
+      "Sec-CH-UA":
+        '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+      "Sec-CH-UA-Mobile": "?0",
+      "Sec-CH-UA-Platform": '"Windows"',
+      "Sec-Fetch-Dest": "empty",
+      "Sec-Fetch-Mode": "cors",
+      "Sec-Fetch-Site": "same-site",
+      "Client-Token":
+        "AADv0EO4cBg2mj8DdXReQyCFEWEd1YOSD3sL1Tffy/g6PDyrJGg6YZwMcKVOUEVXAMvYDFmW+/iJXbKHoNhPESm9mv1hAzmHj0zBiUHI3UBoOJkGbsBzAmtNOsUozeye3EYWESZVQgQ0lHToPBaO0itRWY6V4/3B3K9iLdq4xXvGVIx08hOH5wA/ptU8MFLYHfnXYyqfrwO2E3l/Q4RykfcdEOJLdi6FhBEhPHrwCJKnNOvn5gA3GLA3cuzevwzGwsUL1NZ5nZETAokGszEmGiwOKsk0N66wgcorbcvf9rnazxXGD15gwFECjT7Z1Z0m/h23o3wN7wan34Y=",
     };
 
     try {
