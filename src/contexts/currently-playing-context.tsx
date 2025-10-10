@@ -9,7 +9,6 @@ interface SpotifyContextType {
   albumImageUrl: string;
   songUrl: string;
   explicit: boolean;
-  canvasUrl: string;
   refreshData: () => void;
 }
 
@@ -32,7 +31,6 @@ export const SpotifyProvider: React.FC<{ children: React.ReactNode }> = ({
   const [albumImageUrl, setAlbumImageUrl] = useState("");
   const [songUrl, setSongUrl] = useState("");
   const [explicit, setExplicit] = useState(false);
-  const [canvasUrl, setCanvasUrl] = useState("");
 
   const refreshData = async () => {
     const data = await SpotifyAPI.getCurrentlyPlaying();
@@ -43,7 +41,6 @@ export const SpotifyProvider: React.FC<{ children: React.ReactNode }> = ({
       setAlbumImageUrl(data.item.album.images[0].url);
       setSongUrl(data.item.external_urls.spotify);
       setExplicit(data.item.explicit);
-      getCurrentlyPlayingCanvas(data.item.id);
     } else {
       setIsPlaying(false);
       setTitle("");
@@ -51,21 +48,6 @@ export const SpotifyProvider: React.FC<{ children: React.ReactNode }> = ({
       setAlbumImageUrl("");
       setSongUrl("");
       setExplicit(false);
-      setCanvasUrl("");
-    }
-  };
-
-  const getCurrentlyPlayingCanvas = async (songId: string) => {
-    const { data } = await SpotifyAPI.getSongCanvas(songId);
-    if (
-      data &&
-      data.trackUnion &&
-      data.trackUnion.canvas &&
-      data.trackUnion.canvas.url
-    ) {
-      setCanvasUrl(data.trackUnion.canvas.url);
-    } else {
-      setCanvasUrl("");
     }
   };
 
@@ -86,7 +68,6 @@ export const SpotifyProvider: React.FC<{ children: React.ReactNode }> = ({
         albumImageUrl,
         songUrl,
         explicit,
-        canvasUrl,
         refreshData,
       }}
     >

@@ -1,4 +1,3 @@
-import Badge from "./badge";
 import {
   RiGithubLine,
   RiLinkedinLine,
@@ -89,14 +88,6 @@ export default function Footer() {
           </a>
         </li>
       </ul>
-      <div className="flex justify-between mt-16">
-        <p className="text-center text-sm text-black dark:text-neutral-300">
-          built with <Badge href="https://nextjs.org">Next.js</Badge>
-        </p>
-        <p className="text-center text-sm text-black dark:text-neutral-300">
-          inspired by <Badge href="https://leerob.io/">leerob</Badge>
-        </p>
-      </div>
     </footer>
   );
 }
