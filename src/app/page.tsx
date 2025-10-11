@@ -1,99 +1,293 @@
 "use client";
-import Badge from "./components/badge";
+
 import SpotifyCard from "@/app/components/SpotifyCard";
+
+import { ExternalLink } from "lucide-react";
+
+type Experience = {
+  company: string;
+  period: string;
+  url: string;
+  highlights: string[];
+};
+
+const experiences: Experience[] = [
+  {
+    company: "Kingfisher",
+    period: "dec 2024 — present",
+    url: "https://kingfisher.com/",
+    highlights: [
+      "writing backend for marketplace microservices used by B&Q and Castorama",
+      "kotlin • spring boot • kafka • postgresql • dynamodb • docker • aws",
+    ],
+  },
+  {
+    company: "BitStone",
+    period: "jul 2023 — dec 2024",
+    url: "https:/bitstone.com/",
+    highlights: [
+      "worked on a scouting platform for Universal Music",
+      "turned noisy music data from TikTok, Shazam, Apple, etc. into quick reads for a&r teams.",
+      "node.js • next.js • mysql • aws • sequelize • docker",
+    ],
+  },
+  {
+    company: "Bitdefender",
+    period: "feb 2022 — jun 2022",
+    url: "https://www.bitdefender.com/",
+    highlights: [
+      "recreated exploits — buffer overflow, DLL hijacking, ROP — to validate protections",
+      "c • c++ • win32 api",
+    ],
+  },
+  {
+    company: " ",
+    period: " ",
+    url: "",
+    highlights: [],
+  },
+];
+
+type Project = {
+  name: string;
+  period: string;
+  url: string;
+  highlights: string[];
+};
+
+const projects: Project[] = [
+  {
+    name: "world’s most accurate top 500 spotify artists",
+    period: "sep 2024 — present",
+    url: "https://github.com/EduardLupu/spotify-artists",
+    highlights: [
+      "automated tracker for 150k+ artists; ranks the top 500 by monthly listeners; updates daily",
+      "python • github actions • next.js • tailwind • github pages",
+    ],
+  },
+  {
+    name: "studio pill",
+    period: "aug 2024 — present",
+    url: "https://studiopill.com/",
+    highlights: [
+      "website for an architecture studio; responsive, accessible, seo-minded",
+      "next.js • typescript • tailwindcss • github pages",
+    ],
+  },
+  {
+    name: "notes",
+    period: "nov 2024",
+    url: "https://github.com/EduardLupu/notes",
+    highlights: [
+      "ios notes–inspired app: native (kotlin) and cross-platform (flutter); offline, folders, search, edit",
+      "java • spring boot (server) • kotlin • flutter • dart",
+    ],
+  },
+  {
+    name: "shop — front-end & back-end",
+    period: "aug 2023",
+    url: "https://github.com/EduardLupu/shop",
+    highlights: [
+      "full-stack shop with react + node; carts, auth, product flows",
+      "react • redux • rtk query • node.js • typescript • mongoose • mongodb",
+    ],
+  },
+];
+
+const nowHighlights = [
+  "finishing MSc in swe @ Babeș-Bolyai University",
+  "enjoying building, web scraping, aggregating data across platforms, reverse-engineering, automating",
+  "music — data-led tools, integrations, insights, recommendations; listening to ’80s, ’90s, and ’00s",
+  "📍 cluj-napoca • romania",
+];
+
+const contactLinks = [
+  {
+    href: "https://github.com/EduardLupu",
+    label: "github",
+  },
+  {
+    href: "https://www.linkedin.com/in/eduard-lupu/",
+    label: "linkedin",
+  },
+  {
+    href: "mailto:lupu.eduard.adrian@gmail.com",
+    label: "email",
+  },
+  {
+    href: "https://www.facebook.com/eduard.adrian.lupu",
+    label: "facebook",
+  },
+  {
+    href: "https://www.instagram.com/edi.lupu/",
+    label: "instagram",
+  },
+  {
+    href: "https://www.tiktok.com/@edi.lupu",
+    label: "tiktok",
+  },
+  {
+    href: "https://open.spotify.com/user/4du8lsn1mzt54xlh66ajmvont",
+    label: "spotify",
+  },
+  {
+    href: "https://eduardlupu.com/resume.pdf",
+    label: "résumé",
+  },
+];
 
 export default function Page() {
   return (
-    <section>
-      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-8 tracking-tight">
-        <div className="flex flex-col gap-3">
-          <h1 className="text-[42px] font-bold text-foreground leading-none">
-            eduard lupu
-          </h1>
-          <p className="text-sm text-muted-foreground">
-            software engineer @{" "}
-            <Badge href={"https://kingfisher.com/"}>Kingfisher</Badge>
-          </p>
-          <p className="text-sm text-muted-foreground">
-            MSc in software engineering @{" "}
-            <Badge href={"https://www.ubbcluj.ro/en/"}>BBU</Badge>
-          </p>
+    <section className="space-y-16 pb-16">
+      <header className="grid lg:grid-cols-2 lg:items-start gap-6">
+        <div className="space-y-9">
+          <div className="space-y-3">
+            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
+              software engineer
+            </p>
+            <h1 className="text-4xl font-semibold tracking-tight text-foreground">
+              eduard adrian lupu
+            </h1>
+          </div>
         </div>
-
-        <div className="md:w-[420px] lg:w-[460px] self-stretch md:self-auto">
+        <div className="space-y-3">
           <SpotifyCard />
         </div>
-      </div>
+      </header>
 
-      <section className="space-y-12 mt-8">
-        <div>
-          <h1 className="mb-4 text-2xl font-bold text-foreground">
-            @ Kingfisher
-          </h1>
-          <div className="space-y-4">
-            <p className="text-muted-foreground">
-              currently working on the backend of various microservices,
-              primarily using Kotlin, to power the Kingfisher Marketplace. 🛠️
-            </p>
-            <p className="text-muted-foreground">
-              the Marketplace is a platform within Kingfisher's ecosystem that
-              allows external vendors to list and sell their products directly
-              on Kingfisher's online stores, integrating them into the shopping
-              experience across multiple Kingfisher banners. 🛍️
-            </p>
-          </div>
-        </div>
+      <section className="grid gap-6 md:grid-cols-2">
+        <article className="rounded-2xl border border-border bg-background/80 p-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <h2 className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
+            now
+          </h2>
+          <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+            {nowHighlights.map((highlight) => (
+              <li key={highlight} className="leading-relaxed">
+                {highlight}
+              </li>
+            ))}
+          </ul>
+        </article>
 
-        <div>
-          <h1 className="mb-4 text-2xl font-bold text-foreground">
-            @ BitStone
-          </h1>
-          <p className="text-muted-foreground">
-            worked on a closed-source music project as a full-stack developer.
-            the stack included Node.js and Next.js, and the project involved
-            gathering music data from platforms like TikTok, Shazam, Spotify,
-            and Instagram for our clients. 🎶
+        <article className="rounded-2xl border border-border bg-background/80 p-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <h2 className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
+            elsewhere
+          </h2>
+          <ul className="mt-4 grid gap-8 md:grid-cols-2 items-center text-sm text-muted-foreground ">
+            {contactLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="inline-flex items-center gap-2 text-foreground transition-colors hover:text-muted-foreground"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {link.label}
+                  <ExternalLink className="h-3.5 w-3.5 opacity-60 group-hover/title:opacity-100 transition-opacity" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </section>
+
+      <section className="space-y-6">
+        <div className="flex items-baseline justify-between gap-4">
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            featured experience
           </p>
         </div>
 
-        <div>
-          <h1 className="mb-4 text-2xl font-bold text-foreground">
-            questions?
-          </h1>
-          <div className="space-y-4">
-            <p className="text-muted-foreground">
-              if you're into music, tech, and data, feel free to reach out!
-            </p>
-            <p className="text-muted-foreground">
-              you can find all my contact links in the footer.
-            </p>
-            <p className="text-muted-foreground">
-              prefer to stay anonymous? reach me on{" "}
-              <a
-                href="https://t.me/luckytoef"
-                rel="noopener"
-                target="_blank"
-                className="underline underline-offset-4 text-foreground hover:text-muted-foreground"
-              >
-                t.me/luckytoef
-              </a>
-              .
-            </p>
-            <p className="text-muted-foreground">
-              curious about my professional experience? check out my{" "}
-              <a
-                href="https://eduardlupu.com/resume.pdf"
-                rel="noreferrer"
-                target="_blank"
-                className="underline underline-offset-4 text-foreground hover:text-muted-foreground"
-              >
-                résumé
-              </a>
-              .
-            </p>
-          </div>
+        <div className="grid gap-5 md:grid-cols-2">
+          {experiences.map((experience) => (
+            <ExperienceCard key={experience.company} experience={experience} />
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="flex items-baseline justify-between gap-4">
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            projects outside work
+          </p>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-2">
+          {projects.map((project) => (
+            <ProjectCard key={project.name} project={project} />
+          ))}
         </div>
       </section>
     </section>
+  );
+}
+
+function ExperienceCard({ experience }: { experience: Experience }) {
+  return (
+    <article className="flex h-full flex-col rounded-2xl border border-border bg-background/80 p-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <a
+            href={experience.url}
+            target="_blank"
+            rel="noreferrer"
+            className="group/title inline-flex items-center gap-1 max-w-full hover:underline underline-offset-4"
+            title={experience.company}
+            aria-label={`Open ${experience.company} website`}
+          >
+            <h3 className="font-semibold text-foreground text-sm sm:text-base truncate">
+              {experience.company}
+            </h3>
+            {experience.url && (
+              <ExternalLink className="h-3.5 w-3.5 opacity-60 group-hover/title:opacity-100 transition-opacity" />
+            )}
+          </a>
+          <p className="text-xs text-muted-foreground">{experience.period}</p>
+        </div>
+      </div>
+
+      <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+        {experience.highlights.map((highlight) => (
+          <li key={highlight} className="leading-relaxed">
+            {highlight}
+          </li>
+        ))}
+      </ul>
+    </article>
+  );
+}
+
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <article className="flex h-full flex-col rounded-2xl border border-border bg-background/80 p-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noreferrer"
+            className="group/title inline-flex items-center gap-1 max-w-full hover:underline underline-offset-4"
+            title={project.name}
+            aria-label={`Open ${project.name} website`}
+          >
+            <h3 className="font-semibold text-foreground text-sm sm:text-base truncate">
+              {project.name}
+            </h3>
+            {project.url && (
+              <ExternalLink className="h-3.5 w-3.5 opacity-60 group-hover/title:opacity-100 transition-opacity" />
+            )}
+          </a>
+          <p className="text-xs text-muted-foreground">{project.period}</p>
+        </div>
+      </div>
+
+      <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+        {project.highlights.map((highlight) => (
+          <li key={highlight} className="leading-relaxed">
+            {highlight}
+          </li>
+        ))}
+      </ul>
+    </article>
   );
 }

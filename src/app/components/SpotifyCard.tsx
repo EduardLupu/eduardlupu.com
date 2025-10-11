@@ -22,7 +22,6 @@ export default function SpotifyCard({
     <div
       className={cn(
         "relative group",
-        // Softer outer glow in light mode, a bit stronger in dark
         "rounded-2xl p-[1px]",
         "bg-gradient-to-br from-emerald-400/15 via-emerald-500/10 to-emerald-300/15 dark:from-emerald-400/60 dark:via-emerald-500/30 dark:to-emerald-300/60",
         "shadow-[0_0_0_1px_rgba(16,185,129,0.08),0_8px_24px_rgba(16,185,129,0.08)] dark:shadow-[0_0_0_1px_rgba(16,185,129,0.15),0_8px_30px_rgba(16,185,129,0.15)]",
