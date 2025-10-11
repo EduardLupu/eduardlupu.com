@@ -6,8 +6,10 @@ import {
   FiFacebook,
   FiInstagram,
 } from "react-icons/fi";
-import { FaTiktok } from "react-icons/fa";
-import { FaSpotify } from "react-icons/fa";
+
+import { RiSpotifyLine, RiTiktokLine } from "react-icons/ri";
+
+// import from lucide the tiktok and spotify icons
 
 const socialLinks = [
   {
@@ -38,12 +40,12 @@ const socialLinks = [
   {
     href: "https://www.tiktok.com/@edi.lupu",
     label: "TikTok",
-    icon: FaTiktok,
+    icon: RiTiktokLine,
   },
   {
     href: "https://open.spotify.com/user/4du8lsn1mzt54xlh66ajmvont",
     label: "Spotify",
-    icon: FaSpotify,
+    icon: RiSpotifyLine,
   },
 ];
 

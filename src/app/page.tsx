@@ -41,12 +41,6 @@ const experiences: Experience[] = [
       "c • c++ • win32 api",
     ],
   },
-  {
-    company: " ",
-    period: " ",
-    url: "",
-    highlights: [],
-  },
 ];
 
 type Project = {
@@ -176,7 +170,7 @@ export default function Page() {
             <h2 className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
               elsewhere
             </h2>
-            <ul className="mt-4 grid items-center gap-8 text-sm text-muted-foreground md:grid-cols-2">
+            <ul className="mt-4 grid grid-cols-2 items-center gap-8 text-sm text-muted-foreground md:grid-cols-2">
               {contactLinks.map((link) => (
                 <li key={link.href}>
                   <a
@@ -208,6 +202,7 @@ export default function Page() {
                 experience={experience}
               />
             ))}
+            {experiences.length % 2 !== 0 && <PlaceholderExperienceCard />}
           </div>
         </section>
 
@@ -261,6 +256,21 @@ function ExperienceCard({ experience }: { experience: Experience }) {
         ))}
       </ul>
     </article>
+  );
+}
+
+function PlaceholderExperienceCard() {
+  return (
+    <div className="hidden min-h-[220px] flex-col justify-between rounded-2xl border border-dashed border-border/70 bg-[repeating-linear-gradient(135deg,rgba(148,163,184,0.26)_0px,rgba(148,163,184,0.26)_6px,transparent_6px,transparent_12px)] p-6 text-sm text-muted-foreground dark:border-border/60 dark:bg-[repeating-linear-gradient(135deg,rgba(30,41,59,0.45)_0px,rgba(30,41,59,0.45)_6px,transparent_6px,transparent_12px)] md:flex">
+      <div>
+        <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground/70">
+          open slot
+        </p>
+      </div>
+      <p className="mt-6 max-w-[18ch] text-sm leading-relaxed text-muted-foreground">
+        always experimenting, always growing. let’s make the next big thing.
+      </p>
+    </div>
   );
 }
 

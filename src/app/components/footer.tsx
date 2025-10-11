@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="mt-auto space-y-6 py-12 text-center">
       <SocialLinks />
       <p className="text-sm text-muted-foreground">
-        &copy; {new Date().getFullYear()} eduard lupu. all rights reserved.
+        &copy; {new Date().getFullYear()} eduardlupu.com • all rights reserved.
       </p>
     </footer>
   );
