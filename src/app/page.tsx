@@ -1,6 +1,7 @@
 "use client";
 
 import SpotifyCard from "@/app/components/SpotifyCard";
+import { LandingBackground } from "@/app/background";
 
 import { ExternalLink } from "lucide-react";
 
@@ -138,87 +139,93 @@ const contactLinks = [
 
 export default function Page() {
   return (
-    <section className="space-y-16 pb-16">
-      <header className="grid lg:grid-cols-2 lg:items-start gap-6">
-        <div className="space-y-9">
-          <div className="space-y-3">
-            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
-              software engineer
-            </p>
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground">
-              eduard adrian lupu
-            </h1>
+    <div className="relative pb-16 pt-4 md:pt-6">
+      <LandingBackground variant="layout" />
+      <section className="relative z-10 space-y-16">
+        <header className="grid gap-6 lg:grid-cols-2 lg:items-start">
+          <div className="space-y-9">
+            <div className="space-y-3">
+              <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
+                software engineer
+              </p>
+              <h1 className="text-4xl font-semibold tracking-tight text-foreground">
+                eduard adrian lupu
+              </h1>
+            </div>
           </div>
-        </div>
-        <div className="space-y-3">
-          <SpotifyCard />
-        </div>
-      </header>
+          <div className="space-y-3">
+            <SpotifyCard />
+          </div>
+        </header>
 
-      <section className="grid gap-6 md:grid-cols-2">
-        <article className="rounded-2xl border border-border bg-background/80 p-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <h2 className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
-            now
-          </h2>
-          <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-            {nowHighlights.map((highlight) => (
-              <li key={highlight} className="leading-relaxed">
-                {highlight}
-              </li>
+        <section className="grid gap-6 md:grid-cols-2">
+          <article className="rounded-2xl border border-border bg-background/80 p-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <h2 className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
+              now
+            </h2>
+            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+              {nowHighlights.map((highlight) => (
+                <li key={highlight} className="leading-relaxed">
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="rounded-2xl border border-border bg-background/80 p-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <h2 className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
+              elsewhere
+            </h2>
+            <ul className="mt-4 grid items-center gap-8 text-sm text-muted-foreground md:grid-cols-2">
+              {contactLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="inline-flex items-center gap-2 text-foreground transition-colors hover:text-muted-foreground"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {link.label}
+                    <ExternalLink className="h-3.5 w-3.5 opacity-60 group-hover/title:opacity-100 transition-opacity" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </section>
+
+        <section className="space-y-6">
+          <div className="flex items-baseline justify-between gap-4">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+              featured experience
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {experiences.map((experience) => (
+              <ExperienceCard
+                key={experience.company}
+                experience={experience}
+              />
             ))}
-          </ul>
-        </article>
+          </div>
+        </section>
 
-        <article className="rounded-2xl border border-border bg-background/80 p-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <h2 className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
-            elsewhere
-          </h2>
-          <ul className="mt-4 grid gap-8 md:grid-cols-2 items-center text-sm text-muted-foreground ">
-            {contactLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="inline-flex items-center gap-2 text-foreground transition-colors hover:text-muted-foreground"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {link.label}
-                  <ExternalLink className="h-3.5 w-3.5 opacity-60 group-hover/title:opacity-100 transition-opacity" />
-                </a>
-              </li>
+        <section className="space-y-6">
+          <div className="flex items-baseline justify-between gap-4">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+              projects outside work
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {projects.map((project) => (
+              <ProjectCard key={project.name} project={project} />
             ))}
-          </ul>
-        </article>
+          </div>
+        </section>
       </section>
-
-      <section className="space-y-6">
-        <div className="flex items-baseline justify-between gap-4">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            featured experience
-          </p>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-2">
-          {experiences.map((experience) => (
-            <ExperienceCard key={experience.company} experience={experience} />
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <div className="flex items-baseline justify-between gap-4">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            projects outside work
-          </p>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-2">
-          {projects.map((project) => (
-            <ProjectCard key={project.name} project={project} />
-          ))}
-        </div>
-      </section>
-    </section>
+    </div>
   );
 }
 
