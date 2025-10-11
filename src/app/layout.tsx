@@ -1,11 +1,11 @@
 import "./global.css";
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Navbar } from "./components/nav";
 import Footer from "./components/footer";
 import { baseUrl } from "./sitemap";
 import { montserrat } from "./lib/fonts";
-import { SpotifyProvider } from "../contexts/currently-playing-context";
+import { Navbar } from "@/app/components/nav";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -37,35 +37,25 @@ export const metadata: Metadata = {
   },
 };
 
-const cx = (...classes) => classes.filter(Boolean).join(" ");
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={cx(
-        "text-black bg-white dark:text-white dark:bg-black",
-        montserrat.className,
-      )}
-    >
-      <body
-        className="antialiased max-w-xl mx-4 mt-6 lg:mx-auto
-        [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]:hidden [scrollbar-width:none]:hidden
-      "
-      >
-        <SpotifyProvider>
-          <main className="flex-auto min-w-0 flex flex-col px-2 md:px-0 min-h-[96vh]">
-            <Navbar />
-            {children}
-            <Footer />
-          </main>
-        </SpotifyProvider>
+    <html lang="en" className={montserrat.className} suppressHydrationWarning>
+      <body className="antialiased bg-background text-foreground transition-colors">
+        <Providers>
+          <div className="flex min-h-screen flex-col">
+            <div className="mx-auto w-full max-w-4xl flex-1 px-4">
+              <Navbar />
+              <main className="py-8">{children}</main>
+              <Footer />
+            </div>
+          </div>
+        </Providers>
+        <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
       </body>
-      <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
     </html>
   );
 }

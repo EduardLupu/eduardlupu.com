@@ -1,6 +1,6 @@
 "use client";
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { SpotifyAPI } from "../app/api/spotify";
+import { SpotifyAPI } from "@/app/api/spotify";
 
 interface SpotifyContextType {
   isPlaying: boolean;
@@ -33,22 +33,39 @@ export const SpotifyProvider: React.FC<{ children: React.ReactNode }> = ({
   const [explicit, setExplicit] = useState(false);
 
   const refreshData = async () => {
-    const data = await SpotifyAPI.getCurrentlyPlaying();
-    if (data?.is_playing) {
+    const currentlyPlaying = await SpotifyAPI.getCurrentlyPlaying();
+
+    if (currentlyPlaying?.is_playing && currentlyPlaying.item) {
       setIsPlaying(true);
-      setTitle(data.item.name);
-      setArtist(data.item.artists.map((_artist) => _artist.name).join(", "));
-      setAlbumImageUrl(data.item.album.images[0].url);
-      setSongUrl(data.item.external_urls.spotify);
-      setExplicit(data.item.explicit);
-    } else {
-      setIsPlaying(false);
-      setTitle("");
-      setArtist("");
-      setAlbumImageUrl("");
-      setSongUrl("");
-      setExplicit(false);
+      setTitle(currentlyPlaying.item.name);
+      setArtist(
+        currentlyPlaying.item.artists.map((_artist) => _artist.name).join(", "),
+      );
+      setAlbumImageUrl(currentlyPlaying.item.album.images[0]?.url ?? "");
+      setSongUrl(currentlyPlaying.item.external_urls.spotify);
+      setExplicit(currentlyPlaying.item.explicit);
+      return;
     }
+
+    const recentlyPlayed = await SpotifyAPI.getRecentlyPlayed();
+    if (recentlyPlayed?.track) {
+      setIsPlaying(false);
+      setTitle(recentlyPlayed.track.name);
+      setArtist(
+        recentlyPlayed.track.artists.map((_artist) => _artist.name).join(", "),
+      );
+      setAlbumImageUrl(recentlyPlayed.track.album.images[0]?.url ?? "");
+      setSongUrl(recentlyPlayed.track.external_urls.spotify);
+      setExplicit(recentlyPlayed.track.explicit);
+      return;
+    }
+
+    setIsPlaying(false);
+    setTitle("");
+    setArtist("");
+    setAlbumImageUrl("");
+    setSongUrl("");
+    setExplicit(false);
   };
 
   useEffect(() => {

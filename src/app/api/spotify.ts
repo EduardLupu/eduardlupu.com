@@ -1,5 +1,9 @@
 import axios from "axios";
-import { SpotifyCurrentlyPlaying } from "../../types/currently-playing";
+import { SpotifyCurrentlyPlaying } from "@/types/currently-playing";
+import {
+  SpotifyRecentlyPlayed,
+  SpotifyRecentlyPlayedItem,
+} from "@/types/recently-played";
 
 export class SpotifyAPI {
   private static readonly CLIENT_ID =
@@ -15,6 +19,9 @@ export class SpotifyAPI {
   public static async getCurrentlyPlaying() {
     try {
       const accessToken = await this.getAccessToken();
+      if (!accessToken) {
+        return null;
+      }
 
       const response = await axios.get<SpotifyCurrentlyPlaying>(
         "https://api.spotify.com/v1/me/player/currently-playing",
@@ -32,6 +39,38 @@ export class SpotifyAPI {
       return response.data;
     } catch (error) {
       console.error("Error getting currently playing:", error);
+      return null;
+    }
+  }
+
+  public static async getRecentlyPlayed(
+    limit = 1,
+  ): Promise<SpotifyRecentlyPlayedItem | null> {
+    try {
+      const accessToken = await this.getAccessToken();
+      if (!accessToken) {
+        return null;
+      }
+
+      const response = await axios.get<SpotifyRecentlyPlayed>(
+        "https://api.spotify.com/v1/me/player/recently-played",
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+          params: {
+            limit,
+          },
+        },
+      );
+
+      if (!response.data?.items?.length) {
+        return null;
+      }
+
+      return response.data.items[0];
+    } catch (error) {
+      console.error("Error getting recently played:", error);
       return null;
     }
   }
@@ -70,6 +109,13 @@ export class SpotifyAPI {
 
       this.accessToken = data.access_token;
       this.tokenObtainedAt = now;
+      if (typeof data.expires_in === "number") {
+        const bufferSeconds = 60;
+        this.tokenExpiresIn = Math.max(
+          (data.expires_in - bufferSeconds) * 1000,
+          30 * 1000,
+        );
+      }
 
       return this.accessToken;
     } catch (error) {
