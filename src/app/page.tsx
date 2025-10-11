@@ -143,8 +143,8 @@ export default function Page() {
               <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
                 software engineer
               </p>
-              <h1 className="text-4xl font-semibold tracking-tight text-foreground">
-                eduard adrian lupu
+              <h1 className="whitespace-nowrap leading-none tracking-[-0.02em] text-4xl sm:text-5xl md:text-6xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/60 drop-shadow-sm">
+                eduard lupu
               </h1>
             </div>
           </div>
