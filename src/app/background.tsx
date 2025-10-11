@@ -151,6 +151,36 @@ export function LandingBackground({
         }}
       />
 
+      <motion.div
+        className="pointer-events-none absolute left-1/2 top-6 h-[22rem] w-[40rem] -translate-x-1/2 rotate-6 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.75),rgba(255,255,255,0.2),transparent_70%)] blur-[120px] mix-blend-screen dark:bg-[radial-gradient(ellipse_at_center,rgba(148,163,184,0.65),rgba(79,70,229,0.2),transparent_75%)]"
+        initial={{ opacity: 0.25, rotate: 2 }}
+        animate={{
+          opacity: [0.25, 0.5, 0.3],
+          rotate: [2, 9, 2],
+          x: [-40, 15, -30],
+        }}
+        transition={{
+          duration: 26,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="pointer-events-none absolute left-[18%] top-[28%] h-[14rem] w-[20rem] -rotate-12 bg-[linear-gradient(120deg,rgba(255,255,255,0.6),rgba(255,255,255,0.05))] opacity-70 blur-3xl mix-blend-screen dark:bg-[linear-gradient(120deg,rgba(148,163,184,0.5),rgba(59,130,246,0.08))]"
+        initial={{ opacity: 0.2, scale: 0.9 }}
+        animate={{
+          opacity: [0.2, 0.45, 0.25],
+          scale: [0.9, 1.05, 0.95],
+          x: [0, 18, -8],
+        }}
+        transition={{
+          duration: 30,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "easeInOut",
+        }}
+      />
+
       <SwirlPaths />
       <SwirlPaths mirrored />
 

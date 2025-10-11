@@ -4,6 +4,7 @@ import SpotifyCard from "@/app/components/SpotifyCard";
 import { LandingBackground } from "@/app/background";
 
 import { ExternalLink } from "lucide-react";
+import { GridPattern } from "@/components/ui/grid-pattern";
 
 type Experience = {
   company: string;
@@ -170,6 +171,12 @@ export default function Page() {
             <h2 className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
               elsewhere
             </h2>
+            <GridPattern
+              width={32}
+              height={32}
+              strokeDasharray="12 10 6 10"
+              className="pointer-events-none absolute inset-0 -z-10 fill-transparent stroke-border/60 [mask-image:radial-gradient(400px_circle_at_center,white,transparent)]"
+            />
             <ul className="mt-4 grid grid-cols-2 items-center gap-8 text-sm text-muted-foreground md:grid-cols-2">
               {contactLinks.map((link) => (
                 <li key={link.href}>
