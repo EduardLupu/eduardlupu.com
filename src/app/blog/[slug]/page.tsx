@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { CustomMDX } from "src/app/components/mdx";
 import { formatDate, getBlogPosts } from "src/app/blog/utils";
 import { baseUrl } from "src/app/sitemap";
+import { LandingBackground } from "@/app/background";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -62,6 +63,7 @@ export default function Blog({ params }) {
 
   return (
     <section>
+      <LandingBackground variant="layout" />
       <script
         type="application/ld+json"
         suppressHydrationWarning

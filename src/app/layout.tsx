@@ -1,11 +1,11 @@
 import "./global.css";
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Navbar } from "./components/nav";
 import Footer from "./components/footer";
 import { baseUrl } from "./sitemap";
 import { montserrat } from "./lib/fonts";
-import { SpotifyProvider } from "../contexts/currently-playing-context";
+import { Navbar } from "@/app/components/nav";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -14,15 +14,53 @@ export const metadata: Metadata = {
     template: "%s | eduard lupu",
   },
   description:
-    "eduard lupu`s page. he is a developer who loves working with anything related to music industry.",
+    "eduard lupu is a software engineer building data-rich tools for the music industry and beyond.",
+  keywords: [
+    "eduard lupu",
+    "software engineer",
+    "portfolio",
+    "music technology",
+    "next.js developer",
+    "data engineering",
+    "cluj-napoca",
+    "eduard adrian lupu",
+    "adrian lupu",
+    "programator",
+    "ubb",
+  ],
+  authors: [
+    {
+      name: "eduard lupu",
+      url: baseUrl,
+    },
+  ],
+  creator: "eduard lupu",
+  publisher: "eduard lupu",
+  alternates: {
+    canonical: baseUrl,
+  },
   openGraph: {
     title: "eduard lupu",
     description:
-      "eduard lupu`s page. he is a developer who loves working with anything related to music industry.",
+      "eduard lupu is a software engineer building data-rich tools for the music industry and beyond.",
     url: baseUrl,
     siteName: "eduard lupu",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: `${baseUrl}/favicon-96x96.png`,
+        width: 96,
+        height: 96,
+        alt: "eduard lupu logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "eduard lupu",
+    description:
+      "Software engineer focused on the intersection of software, data, and the music industry.",
   },
   robots: {
     index: true,
@@ -35,170 +73,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: [
-      {
-        rel: "icon",
-        url: "/android-icon-36x36.png",
-        sizes: "36x36",
-        type: "image/png",
-      },
-      {
-        rel: "icon",
-        url: "/android-icon-48x48.png",
-        sizes: "48x48",
-        type: "image/png",
-      },
-      {
-        rel: "icon",
-        url: "/android-icon-72x72.png",
-        sizes: "72x72",
-        type: "image/png",
-      },
-      {
-        rel: "icon",
-        url: "/android-icon-96x96.png",
-        sizes: "96x96",
-        type: "image/png",
-      },
-      {
-        rel: "icon",
-        url: "/android-icon-144x144.png",
-        sizes: "144x144",
-        type: "image/png",
-      },
-      {
-        rel: "icon",
-        url: "/android-icon-192x192.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
-
-      // Apple icons
-      {
-        rel: "apple-touch-icon",
-        url: "/apple-icon.png",
-        sizes: "unknown",
-        type: "image/png",
-      },
-      {
-        rel: "apple-touch-icon",
-        url: "/apple-icon-57x57.png",
-        sizes: "57x57",
-        type: "image/png",
-      },
-      {
-        rel: "apple-touch-icon",
-        url: "/apple-icon-60x60.png",
-        sizes: "60x60",
-        type: "image/png",
-      },
-      {
-        rel: "apple-touch-icon",
-        url: "/apple-icon-72x72.png",
-        sizes: "72x72",
-        type: "image/png",
-      },
-      {
-        rel: "apple-touch-icon",
-        url: "/apple-icon-76x76.png",
-        sizes: "76x76",
-        type: "image/png",
-      },
-      {
-        rel: "apple-touch-icon",
-        url: "/apple-icon-114x114.png",
-        sizes: "114x114",
-        type: "image/png",
-      },
-      {
-        rel: "apple-touch-icon",
-        url: "/apple-icon-120x120.png",
-        sizes: "120x120",
-        type: "image/png",
-      },
-      {
-        rel: "apple-touch-icon",
-        url: "/apple-icon-144x144.png",
-        sizes: "144x144",
-        type: "image/png",
-      },
-      {
-        rel: "apple-touch-icon",
-        url: "/apple-icon-152x152.png",
-        sizes: "152x152",
-        type: "image/png",
-      },
-      {
-        rel: "apple-touch-icon",
-        url: "/apple-icon-180x180.png",
-        sizes: "180x180",
-        type: "image/png",
-      },
-      {
-        rel: "apple-icon-precomposed",
-        url: "/apple-icon-precomposed.png",
-        sizes: "unknown",
-        type: "image/png",
-      },
-
-      // Favicons
-      {
-        rel: "icon",
-        url: "/favicon.ico",
-        sizes: "unknown",
-        type: "image/x-icon",
-      },
-      {
-        rel: "icon",
-        url: "/favicon-16x16.png",
-        sizes: "16x16",
-        type: "image/png",
-      },
-      {
-        rel: "icon",
-        url: "/favicon-32x32.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
-      {
-        rel: "icon",
-        url: "/favicon-96x96.png",
-        sizes: "96x96",
-        type: "image/png",
-      },
-
-      // Microsoft icons
-      {
-        rel: "icon",
-        url: "/ms-icon-70x70.png",
-        sizes: "70x70",
-        type: "image/png",
-      },
-      {
-        rel: "icon",
-        url: "/ms-icon-144x144.png",
-        sizes: "144x144",
-        type: "image/png",
-      },
-      {
-        rel: "icon",
-        url: "/ms-icon-150x150.png",
-        sizes: "150x150",
-        type: "image/png",
-      },
-      {
-        rel: "icon",
-        url: "/ms-icon-310x310.png",
-        sizes: "310x310",
-        type: "image/png",
-      },
-    ],
-    shortcut: { url: "/favicon.ico" },
-  },
 };
-
-const cx = (...classes) => classes.filter(Boolean).join(" ");
 
 export default function RootLayout({
   children,
@@ -206,27 +81,65 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={cx(
-        "text-black bg-white dark:text-white dark:bg-black",
-        montserrat.className,
-      )}
-    >
-      <body
-        className="antialiased max-w-xl mx-4 mt-6 lg:mx-auto
-        [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]:hidden [scrollbar-width:none]:hidden
-      "
-      >
-        <SpotifyProvider>
-          <main className="flex-auto min-w-0 flex flex-col px-2 md:px-0 min-h-[96vh]">
-            <Navbar />
-            {children}
-            <Footer />
-          </main>
-        </SpotifyProvider>
+    <html lang="en" className={montserrat.className} suppressHydrationWarning>
+      <head>
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="eduard lupu" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "eduard lupu",
+              url: baseUrl,
+              image: `${baseUrl}/favicon-96x96.png`,
+              jobTitle: "Software Engineer",
+              description:
+                "Software engineer building data-rich tools for the music industry and beyond.",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Cluj-Napoca",
+                addressCountry: "RO",
+              },
+              sameAs: [
+                "https://github.com/EduardLupu",
+                "https://www.linkedin.com/in/eduard-lupu/",
+                "https://www.facebook.com/eduard.adrian.lupu",
+                "https://www.instagram.com/edi.lupu/",
+                "https://www.tiktok.com/@edi.lupu",
+                "https://open.spotify.com/user/4du8lsn1mzt54xlh66ajmvont",
+              ],
+            }),
+          }}
+        />
+      </head>
+      <body className="antialiased bg-background text-foreground transition-colors overflow-y-scroll">
+        <Providers>
+          <div className="flex min-h-screen flex-col">
+            <div className="mx-auto w-full max-w-4xl flex-1 px-6">
+              <Navbar />
+              <main className="py-8">{children}</main>
+              <Footer />
+            </div>
+          </div>
+        </Providers>
+        <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
       </body>
-      <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
     </html>
   );
 }

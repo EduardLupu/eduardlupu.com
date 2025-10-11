@@ -1,43 +1,67 @@
-import Link from "next/link";
+"use client";
 
-const navItems = {
-  "/": {
-    name: "home",
-  },
-  "/work": {
-    name: "work",
-  },
-  "/music": {
-    name: "music",
-  },
-  "/blog": {
-    name: "blog",
-  },
-};
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { LayoutGroup, motion } from "framer-motion";
+import ThemeToggle from "@/components/theme-toggle";
+import { cn } from "@/lib/utils";
+
+const navItems = [
+  { href: "/", name: "home" },
+  { href: "/blog", name: "blog" },
+];
 
 export function Navbar() {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => {
+    if (!pathname) return false;
+    if (path === "/") return pathname === "/";
+    return pathname.startsWith(path);
+  };
+
   return (
-    <aside className="-ml-[16px] mb-16 tracking-tight text-sm">
-      <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-          id="nav"
-        >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-4"
-                >
-                  {name}
-                </Link>
-              );
-            })}
-          </div>
-        </nav>
+    <header className="sticky top-6 z-40 mb-10">
+      <div className="rounded-2xl p-[1px] bg-gradient-to-b from-foreground/10 to-transparent">
+        <div className="flex w-full items-center justify-between gap-4 rounded-[calc(theme(borderRadius.2xl)-1px)] border border-border bg-background/80 px-3 py-2.5 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-5">
+          <LayoutGroup id="nav">
+            <nav id="nav" className="relative flex items-center gap-2 text-sm">
+              {navItems.map(({ href, name }) => {
+                const active = isActive(href);
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "relative rounded-full px-3.5 py-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
+                      active
+                        ? "text-background"
+                        : "text-foreground/80 hover:text-foreground",
+                    )}
+                  >
+                    {/* animated pill background */}
+                    {active && (
+                      <motion.span
+                        layoutId="nav-pill"
+                        className="absolute inset-0 rounded-full bg-foreground"
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                    <span className="relative z-10 lowercase">{name}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </LayoutGroup>
+
+          <ThemeToggle />
+        </div>
       </div>
-    </aside>
+    </header>
   );
 }
