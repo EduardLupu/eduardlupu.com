@@ -36,7 +36,7 @@ export function Navbar() {
                 "rounded-full px-4 py-2 transition-colors",
                 isActive(href)
                   ? "bg-foreground text-background shadow-sm"
-                  : "text-foreground/70 hover:bg-muted/60 hover:text-foreground",
+                  : "text-neutral-900 hover:bg-muted/60 hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-neutral-100",
               )}
             >
               {name}
