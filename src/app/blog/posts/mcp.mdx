@@ -1,0 +1,63 @@
+---
+title: 'mcp: useful or not?'
+publishedAt: '2025-10-12'
+summary: 'three days with mcp — what clicked, what didn’t, and when to use it'
+---
+
+three days inside Model Context Protocol (MCP) and this thing really changes how build/ship feels. below is the download while the enthusiasm is still warm, minus the hype.
+
+## quick definition
+
+Model Context Protocol (MCP) is an open way for agents to talk to tools via **servers** (providers) that expose typed capabilities. instead of gluing random apis and praying the agent “gets it,” you register servers for filesystems, docs, design systems, component libraries, or private knowledge bases. every call is structured and auditable, so grounding improves and hallucinations drop.
+
+the agent (Cursor, Windsurf, etc.) (tbh I managed with WebStorm/Copilot plugin and I like it a lot more than Cursor) stays your interface; it just speaks MCP to reach real data. basically, it's like you copy-paste the documentation into ChatGPT after you spend 30 minutes on him that you are working on a different version of React or whatever.
+
+## three-day stack that worked
+
+### 1) Context7 — the lifesaver
+- **what it does:** streams repo context (files, diffs), api docs, and private knowledge into the agent on demand.
+- **why it matters:** understanding jumps from “maybe” to “yep, that file right there.” references are exact, diffs are present, and stale context stops being a problem.
+- **best moment:** asked for a refactor of a tricky React hook; the agent quoted lines and tests verbatim because Context7 had already indexed the repo. zero hunting, zero “can’t find that file.”
+- **link:** [context7.com](https://context7.com/)
+
+### 2) shadcn — ui on tap
+- **what it does:** exposes shadcn/ui as actions: request a dialog/toast/sheet and receive a drop-in component wired with Tailwind and Radix primitives.
+- **why it matters:** tab-hopping to docs disappears. components arrive with the right variant, and tailwind config is updated when needed.
+- **best moment:** needed a feature-flag modal in a Next.js project; the agent pulled the exact pieces, added motion variants, and kept a11y props intact.
+- **link:** [ui.shadcn.com/docs/mcp](https://ui.shadcn.com/docs/mcp)
+
+### 3) V0 — quick polish when design matters
+- **what it does:** proposes structured page sections (hero, pricing, 404) plus copy hints you can keep or toss.
+- **why it matters:** shines when there’s already a layout draft; treat it as a design sparring partner, not a full site generator.
+- **best moment:** wanted a playful 404; V0 sketched hierarchy + copy so only small tweaks were needed.
+- **link:** [v0.app/docs/api/platform/adapters/mcp-server](https://v0.app/docs/api/platform/adapters/mcp-server)
+
+## practical workflow tips
+
+- wire **Context7 first**. good context turns the agent from clever autocomplete into a teammate.
+- keep **shadcn** enabled on feature branches touching ui; disable when deep in api/infra to keep the toolbelt lean.
+- use **V0** for specific sections, not full pages; feed brand tone and audience so the suggestions fit.
+
+## rough edges (still worth it)
+
+- **server discovery:** naming and capability lists aren’t always obvious; document your “core servers” per repo in a `mcp.md`.
+- **long-running ops:** some servers return results slowly; prefer streaming responses or chunking where possible.
+- **state drift:** when repos move fast, re-index triggers matter; schedule refreshes or hook into git events.
+- **latency budget:** more servers ≠ better; keep only what the task needs to avoid tool-selection overhead.
+
+## when mcp is overkill
+
+single-file scripts, one-off scraping, or tiny refactors often move faster with a local script + editor. mcp shines once the project has **ongoing** context (repos, docs, components) that the agent must reuse all day.
+
+## what’s next to try
+
+- a **filesystem server** with project-scoped search/replace.
+- a **datadog server** to pull alerts/metrics directly into context while debugging (would love to use that on my job).
+- a **playwright server** for scripted browser checks tied to tickets.
+- a **supabase/postgres server** for schema introspection + safe migration planning.
+
+## verdict
+
+mcp feels like the missing glue between strong agents and a real workbench. Context7 stays always-on, shadcn flips on for ui work, and V0 jumps in when a section needs polish. daily builders will likely see fewer hallucinations, faster component work, and less context juggling.
+
+curious which server rivals Context7 for productivity — recommendations are welcome.

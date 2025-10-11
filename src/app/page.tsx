@@ -53,7 +53,7 @@ type Project = {
 
 const projects: Project[] = [
   {
-    name: "world’s most accurate top 500 spotify artists",
+    name: "top 500 spotify artists",
     period: "sep 2024 — present",
     url: "https://github.com/EduardLupu/spotify-artists",
     highlights: [
@@ -75,7 +75,7 @@ const projects: Project[] = [
     period: "nov 2024",
     url: "https://github.com/EduardLupu/notes",
     highlights: [
-      "ios notes–inspired app: native (kotlin) and cross-platform (flutter); offline, folders, search, edit",
+      "ios notes — inspired app: native (kotlin) and cross-platform (flutter); offline, folders, search, edit",
       "java • spring boot (server) • kotlin • flutter • dart",
     ],
   },

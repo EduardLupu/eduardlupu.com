@@ -49,9 +49,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${baseUrl}/favicon-96x96.png`,
-        width: 96,
-        height: 96,
+        url: `${baseUrl}/web-app-manifest-512x512.png`,
+        width: 512,
+        height: 512,
         alt: "eduard lupu logo",
       },
     ],
