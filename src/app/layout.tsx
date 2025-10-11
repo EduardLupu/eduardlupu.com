@@ -44,10 +44,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={montserrat.className} suppressHydrationWarning>
-      <body className="antialiased bg-background text-foreground transition-colors">
+      <body className="antialiased bg-background text-foreground transition-colors overflow-y-scroll">
         <Providers>
           <div className="flex min-h-screen flex-col">
-            <div className="mx-auto w-full max-w-4xl flex-1 px-4">
+            <div className="mx-auto w-full max-w-4xl flex-1 px-6">
               <Navbar />
               <main className="py-8">{children}</main>
               <Footer />

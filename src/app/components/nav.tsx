@@ -1,39 +1,50 @@
-import Link from "next/link";
-import ThemeToggle from "../../components/theme-toggle";
+"use client";
 
-const navItems = {
-  "/": {
-    name: "home",
-  },
-  "/blog": {
-    name: "blog",
-  },
-};
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import ThemeToggle from "@/components/theme-toggle";
+import { cn } from "@/lib/utils";
+
+const navItems = [
+  { href: "/", name: "home" },
+  { href: "/blog", name: "blog" },
+];
 
 export function Navbar() {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => {
+    if (!pathname) {
+      return false;
+    }
+    if (path === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(path);
+  };
+
   return (
-    <aside className="-ml-[16px] mb-16 tracking-tight text-sm">
-      <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-center justify-between relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative text-neutral-700 dark:text-neutral-300"
-          id="nav"
-        >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className="transition-all text-neutral-700 hover:text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-200 flex align-middle relative py-1 px-4"
-                >
-                  {name}
-                </Link>
-              );
-            })}
-          </div>
-          <ThemeToggle />
+    <header className="sticky top-6 z-40 mb-10">
+      <div className="flex w-full items-center justify-between gap-4 rounded-2xl border border-border bg-background/80 px-4 py-3 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-6">
+        <nav id="nav" className="flex items-center gap-1 text-sm font-medium">
+          {navItems.map(({ href, name }) => (
+            <Link
+              key={href}
+              href={href}
+              className={cn(
+                "rounded-full px-4 py-2 transition-colors",
+                isActive(href)
+                  ? "bg-foreground text-background shadow-sm"
+                  : "text-foreground/70 hover:bg-muted/60 hover:text-foreground",
+              )}
+            >
+              {name}
+            </Link>
+          ))}
         </nav>
+        <ThemeToggle />
       </div>
-    </aside>
+    </header>
   );
 }

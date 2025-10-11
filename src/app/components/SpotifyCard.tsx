@@ -2,7 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Music2 } from "lucide-react";
+import { Music2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useSpotify } from "@/contexts/currently-playing-context";
 
@@ -98,9 +98,6 @@ export default function SpotifyCard({
             <h3 className="font-semibold text-foreground text-sm sm:text-base truncate">
               {title || "Spotify"}
             </h3>
-            {songUrl && (
-              <ExternalLink className="h-3.5 w-3.5 opacity-60 group-hover/title:opacity-100 transition-opacity" />
-            )}
           </a>
 
           {/* Artist row + Explicit badge */}
