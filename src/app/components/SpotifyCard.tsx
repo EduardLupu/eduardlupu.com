@@ -22,6 +22,7 @@ export default function SpotifyCard({
     <div
       className={cn(
         "relative group",
+        "w-full max-w-full overflow-hidden",
         "rounded-2xl p-[1px]",
         "bg-gradient-to-br from-emerald-400/15 via-emerald-500/10 to-emerald-300/15 dark:from-emerald-400/60 dark:via-emerald-500/30 dark:to-emerald-300/60",
         "shadow-[0_0_0_1px_rgba(16,185,129,0.08),0_8px_24px_rgba(16,185,129,0.08)] dark:shadow-[0_0_0_1px_rgba(16,185,129,0.15),0_8px_30px_rgba(16,185,129,0.15)]",
@@ -30,6 +31,7 @@ export default function SpotifyCard({
     >
       <div
         className={cn(
+          "w-full",
           // Use theme tokens for surfaces so it blends with your light/dark toggler
           "rounded-2xl backdrop-blur supports-[backdrop-filter]:bg-background/70 bg-background/80",
           "border border-border",
@@ -87,7 +89,7 @@ export default function SpotifyCard({
             target="_blank"
             rel="noreferrer"
             className={cn(
-              "group/title inline-flex items-center gap-1 max-w-full",
+              "group/title flex items-center gap-1 w-full max-w-full min-w-0",
               songUrl
                 ? "hover:underline underline-offset-4"
                 : "pointer-events-none",
@@ -95,7 +97,7 @@ export default function SpotifyCard({
             title={title || "Spotify"}
             aria-label={title ? `Open ${title} on Spotify` : "Open on Spotify"}
           >
-            <h3 className="font-semibold text-foreground text-sm sm:text-base truncate">
+            <h3 className="font-semibold text-foreground text-sm sm:text-base min-w-0 break-words leading-tight">
               {title || "Spotify"}
             </h3>
           </a>
@@ -103,7 +105,7 @@ export default function SpotifyCard({
           {/* Artist row + Explicit badge */}
           <div className="flex items-center gap-2 mt-0.5 min-w-0">
             {explicit && <ExplicitBadge />}
-            <p className="text-xs sm:text-sm text-muted-foreground truncate">
+            <p className="text-xs sm:text-sm text-muted-foreground min-w-0 break-words leading-snug">
               {artist || ""}
             </p>
           </div>
