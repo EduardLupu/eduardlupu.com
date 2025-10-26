@@ -53,12 +53,12 @@ type Project = {
 
 const projects: Project[] = [
   {
-    name: "top 500 spotify artists",
+    name: "world's top artists",
     period: "sep 2024 — present",
-    url: "https://github.com/EduardLupu/spotify-artists",
+    url: "https://music.eduardlupu.com/",
     highlights: [
-      "automated tracker for 150k+ artists; ranks the top 500 by monthly listeners; updates daily",
-      "python • github actions • next.js • tailwind • github pages",
+      "daily tracker and visualizer for the top artists, with insights, charts, maps, and a 3d relationship graph",
+      "python • github actions • next.js • tailwind • github pages • three.js • d3.js",
     ],
   },
   {
