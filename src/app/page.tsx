@@ -45,7 +45,7 @@ const experiences: Experience[] = [
   {
     company: "Bitdefender",
     period: "feb 2022 — jun 2022",
-    url: "https://gibitdefender.com/",
+    url: "https://bitdefender.com/",
     highlights: [
       "recreated exploits — buffer overflow, DLL hijacking, ROP — to validate protections",
       "c • c++ • win32 api",
