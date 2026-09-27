@@ -15,6 +15,15 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
+    company: "FanDuel",
+    period: "feb 2025 — present",
+    url: "https://fanduel.com/",
+    highlights: [
+      "fullstack dev on the generosity team - building promos, rewards, and loyalty that make players feel valued",
+      "next.js • node bff • typescript",
+    ],
+  },
+  {
     company: "Kingfisher",
     period: "dec 2024 — present",
     url: "https://kingfisher.com/",
@@ -71,6 +80,24 @@ const projects: Project[] = [
     ],
   },
   {
+    name: "depmod",
+    period: "may 2026 - jul 2026",
+    url: "https://github.com/EduardLupu/depmod",
+    highlights: [
+      "static import-graph interactive explorer for TypeScript & JavaScript projects. see the shape of your codebase",
+      "frontend • graphs • javascript • nextjs • typescript • vizualisation",
+    ],
+  },
+  {
+    name: "medical certificate",
+    period: "oct 2025 - dec 2025",
+    url: "https://github.com/EduardLupu/medical-certificate",
+    highlights: [
+      "CNAS medical certificates OCR",
+      "image-processing • ocr • python3 • streamlit",
+    ],
+  },
+  {
     name: "notes",
     period: "nov 2024",
     url: "https://github.com/EduardLupu/notes",
@@ -91,7 +118,7 @@ const projects: Project[] = [
 ];
 
 const nowHighlights = [
-  "finishing MSc in swe @ Babeș-Bolyai University",
+  "taking a small break from uni after finishing MSc in SWE @ Babeș-Bolyai University",
   "enjoying building, web scraping, aggregating data across platforms, reverse-engineering, automating",
   "music — data-led tools, integrations, insights, recommendations; listening to ’80s, ’90s, and ’00s",
   "📍 cluj-napoca • romania",
@@ -203,14 +230,14 @@ export default function Page() {
           </div>
 
           <div className="grid gap-5 md:grid-cols-2">
-            {experiences.map((experience) => (
-              <ExperienceCard
-                key={experience.company}
-                experience={experience}
-              />
-            ))}
-            {experiences.length % 2 !== 0 && <PlaceholderExperienceCard />}
-          </div>
+          {experiences.map((experience) => (
+          <ExperienceCard
+           key={experience.company}
+           experience={experience}
+          />
+      ))}
+  <PlaceholderExperienceCard />
+</div>
         </section>
 
         <section className="space-y-6">
