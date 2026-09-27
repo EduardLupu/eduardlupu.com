@@ -25,7 +25,7 @@ const experiences: Experience[] = [
   },
   {
     company: "Kingfisher",
-    period: "dec 2024 — present",
+    period: "dec 2024 — feb 2025",
     url: "https://kingfisher.com/",
     highlights: [
       "writing backend for marketplace microservices used by B&Q and Castorama",
@@ -35,7 +35,7 @@ const experiences: Experience[] = [
   {
     company: "BitStone",
     period: "jul 2023 — dec 2024",
-    url: "https:/bitstone.com/",
+    url: "https://bitstone.com/",
     highlights: [
       "worked on a scouting platform for Universal Music",
       "turned noisy music data from TikTok, Shazam, Apple, etc. into quick reads for a&r teams.",
@@ -45,7 +45,7 @@ const experiences: Experience[] = [
   {
     company: "Bitdefender",
     period: "feb 2022 — jun 2022",
-    url: "https://www.bitdefender.com/",
+    url: "https://gibitdefender.com/",
     highlights: [
       "recreated exploits — buffer overflow, DLL hijacking, ROP — to validate protections",
       "c • c++ • win32 api",
@@ -85,16 +85,16 @@ const projects: Project[] = [
     url: "https://github.com/EduardLupu/depmod",
     highlights: [
       "static import-graph interactive explorer for TypeScript & JavaScript projects. see the shape of your codebase",
-      "frontend • graphs • javascript • nextjs • typescript • vizualisation",
+      "frontend • graphs • javascript • nextjs • typescript • vizualisation • cytoscape • three.js • d3.js",
     ],
   },
   {
-    name: "medical certificate",
+    name: "cnas ocr",
     period: "oct 2025 - dec 2025",
     url: "https://github.com/EduardLupu/medical-certificate",
     highlights: [
-      "CNAS medical certificates OCR",
-      "image-processing • ocr • python3 • streamlit",
+      "ocr pipeline that turns scanned CNAS medical certificates into structured data via ROI-based OCR, with per-field confidence scoring and review flags",
+      "image-processing • ocr • python3 • streamlit • opencv • pandas",
     ],
   },
   {
@@ -233,10 +233,10 @@ export default function Page() {
           {experiences.map((experience) => (
           <ExperienceCard
            key={experience.company}
-           experience={experience}
-          />
-      ))}
-  <PlaceholderExperienceCard />
+          experience={experience}
+      />
+    ))}
+  {experiences.length % 2 === 0 && <PlaceholderExperienceCard />}
 </div>
         </section>
 
@@ -295,7 +295,7 @@ function ExperienceCard({ experience }: { experience: Experience }) {
 
 function PlaceholderExperienceCard() {
   return (
-    <div className="hidden min-h-[220px] flex-col justify-between rounded-2xl border border-dashed border-border/70 bg-[repeating-linear-gradient(135deg,rgba(148,163,184,0.26)_0px,rgba(148,163,184,0.26)_6px,transparent_6px,transparent_12px)] p-6 text-sm text-muted-foreground dark:border-border/60 dark:bg-[repeating-linear-gradient(135deg,rgba(30,41,59,0.45)_0px,rgba(30,41,59,0.45)_6px,transparent_6px,transparent_12px)] md:flex">
+    <div className="hidden min-h-[220px] flex-col justify-between rounded-2xl border border-dashed border-border/70 bg-[repeating-linear-gradient(135deg,rgba(148,163,184,0.26)_0px,rgba(148,163,184,0.26)_6px,transparent_6px,transparent_12px)] p-6 text-sm text-muted-foreground dark:border-border/60 dark:bg-[repeating-linear-gradient(135deg,rgba(30,41,59,0.45)_0px,rgba(30,41,59,0.45)_6px,transparent_6px,transparent_12px)] md:flex md:col-span-2">
       <div>
         <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground/70">
           open slot
