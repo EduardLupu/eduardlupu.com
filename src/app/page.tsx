@@ -229,14 +229,14 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2">
-          {experiences.map((experience) => (
-          <ExperienceCard
-           key={experience.company}
-          experience={experience}
-      />
-    ))}
-  {experiences.length % 2 === 0 && <PlaceholderExperienceCard />}
+         <div className="grid gap-5 md:grid-cols-2">
+  {experiences.map((experience) => (
+    <ExperienceCard
+      key={experience.company}
+      experience={experience}
+    />
+  ))}
+  <PlaceholderExperienceCard wide={experiences.length % 2 === 0} />
 </div>
         </section>
 
@@ -293,9 +293,13 @@ function ExperienceCard({ experience }: { experience: Experience }) {
   );
 }
 
-function PlaceholderExperienceCard() {
+function PlaceholderExperienceCard({ wide }: { wide: boolean }) {
   return (
-    <div className="hidden min-h-[220px] flex-col justify-between rounded-2xl border border-dashed border-border/70 bg-[repeating-linear-gradient(135deg,rgba(148,163,184,0.26)_0px,rgba(148,163,184,0.26)_6px,transparent_6px,transparent_12px)] p-6 text-sm text-muted-foreground dark:border-border/60 dark:bg-[repeating-linear-gradient(135deg,rgba(30,41,59,0.45)_0px,rgba(30,41,59,0.45)_6px,transparent_6px,transparent_12px)] md:flex md:col-span-2">
+    <div
+      className={`flex min-h-[220px] flex-col justify-between rounded-2xl border border-dashed border-border/70 bg-[repeating-linear-gradient(135deg,rgba(148,163,184,0.26)_0px,rgba(148,163,184,0.26)_6px,transparent_6px,transparent_12px)] p-6 text-sm text-muted-foreground dark:border-border/60 dark:bg-[repeating-linear-gradient(135deg,rgba(30,41,59,0.45)_0px,rgba(30,41,59,0.45)_6px,transparent_6px,transparent_12px)] ${
+        wide ? "md:col-span-2" : ""
+      }`}
+    >
       <div>
         <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground/70">
           open slot
