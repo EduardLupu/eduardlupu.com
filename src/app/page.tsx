@@ -25,7 +25,7 @@ const experiences: Experience[] = [
   },
   {
     company: "Kingfisher",
-    period: "dec 2024 — present",
+    period: "dec 2024 — feb 2025",
     url: "https://kingfisher.com/",
     highlights: [
       "writing backend for marketplace microservices used by B&Q and Castorama",
@@ -35,7 +35,7 @@ const experiences: Experience[] = [
   {
     company: "BitStone",
     period: "jul 2023 — dec 2024",
-    url: "https:/bitstone.com/",
+    url: "https://bitstone.com/",
     highlights: [
       "worked on a scouting platform for Universal Music",
       "turned noisy music data from TikTok, Shazam, Apple, etc. into quick reads for a&r teams.",
@@ -45,7 +45,7 @@ const experiences: Experience[] = [
   {
     company: "Bitdefender",
     period: "feb 2022 — jun 2022",
-    url: "https://www.bitdefender.com/",
+    url: "https://bitdefender.com/",
     highlights: [
       "recreated exploits — buffer overflow, DLL hijacking, ROP — to validate protections",
       "c • c++ • win32 api",
@@ -81,20 +81,20 @@ const projects: Project[] = [
   },
   {
     name: "depmod",
-    period: "may 2026 - jul 2026",
+    period: "may 2026- jul 2026",
     url: "https://github.com/EduardLupu/depmod",
     highlights: [
       "static import-graph interactive explorer for TypeScript & JavaScript projects. see the shape of your codebase",
-      "frontend • graphs • javascript • nextjs • typescript • vizualisation",
+      "frontend • graphs • javascript • nextjs • typescript • vizualisation • cytoscape • three.js • d3.js",
     ],
   },
   {
-    name: "medical certificate",
+    name: "cnas ocr",
     period: "oct 2025 - dec 2025",
     url: "https://github.com/EduardLupu/medical-certificate",
     highlights: [
-      "CNAS medical certificates OCR",
-      "image-processing • ocr • python3 • streamlit",
+      "ocr pipeline that turns scanned CNAS medical certificates into structured data via ROI-based OCR, with per-field confidence scoring and review flags",
+      "image-processing • ocr • python3 • streamlit • opencv • pandas",
     ],
   },
   {
@@ -230,14 +230,14 @@ export default function Page() {
           </div>
 
           <div className="grid gap-5 md:grid-cols-2">
-          {experiences.map((experience) => (
-          <ExperienceCard
-           key={experience.company}
-           experience={experience}
-          />
-      ))}
-  <PlaceholderExperienceCard />
-</div>
+            {experiences.map((experience) => (
+              <ExperienceCard
+                key={experience.company}
+                experience={experience}
+              />
+            ))}
+            {experiences.length % 2 !== 0 && <PlaceholderExperienceCard />}
+          </div>
         </section>
 
         <section className="space-y-6">
