@@ -42,7 +42,7 @@ const experiences: Experience[] = [
       "node.js • next.js • mysql • aws • sequelize • docker",
     ],
   },
- {
+  {
     company: "Bitdefender",
     period: "feb 2022 — jun 2022",
     url: "https://bitdefender.com/",
@@ -229,13 +229,13 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2">
-        {experiences.map((experience) => (
-          <ExperienceCard
-            key={experience.company}
-            experience={experience}
-        />
-      ))}
+         <div className="grid gap-5 md:grid-cols-2">
+  {experiences.map((experience) => (
+    <ExperienceCard
+      key={experience.company}
+      experience={experience}
+    />
+  ))}
   <PlaceholderExperienceCard wide={experiences.length % 2 === 0} />
 </div>
         </section>
