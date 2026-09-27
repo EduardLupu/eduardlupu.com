@@ -118,7 +118,7 @@ const projects: Project[] = [
 ];
 
 const nowHighlights = [
-  "taking a break from uni to prepare for a PhD in swe @ Babeș-Bolyai University",
+  "taking a small break from uni after finishing MSc in SWE @ Babeș-Bolyai University",
   "enjoying building, web scraping, aggregating data across platforms, reverse-engineering, automating",
   "music — data-led tools, integrations, insights, recommendations; listening to ’80s, ’90s, and ’00s",
   "📍 cluj-napoca • romania",
