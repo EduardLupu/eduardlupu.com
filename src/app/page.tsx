@@ -81,7 +81,7 @@ const projects: Project[] = [
   },
   {
     name: "depmod",
-    period: "may 2026- jul 2026",
+    period: "may 2026 - jul 2026",
     url: "https://github.com/EduardLupu/depmod",
     highlights: [
       "static import-graph interactive explorer for TypeScript & JavaScript projects. see the shape of your codebase",
